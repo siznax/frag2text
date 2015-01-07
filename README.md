@@ -1,4 +1,5 @@
-Robustly reverse-Markdown (html2text) selected HTML fragments.
+Robustly reverse-Markdown (html2text) web page fragments by CSS
+selector or Xpath expression.
 
 ### Usage
 
@@ -27,7 +28,8 @@ $ frag2text.py http://en.wikipedia.org/wiki/Amanita css .infobox
 
 _Amanita_
 ---
-![Fliegenpilz-1.jpg](//upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Fliegenpilz-1.jpg/230px-Fliegenpilz-1.jpg)
+![Fliegenpilz-1.jpg](//upload.wikimedia.org/wikipedia/commons/thumb/d/d1
+/Fliegenpilz-1.jpg/230px-Fliegenpilz-1.jpg)
 _[Amanita muscaria](/wiki/Amanita_muscaria)_
 Albin Schmalfuß, 1897
 [Scientific classification](/wiki/Biological_classification)
