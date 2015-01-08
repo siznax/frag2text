@@ -25,7 +25,8 @@ class Frag2Text:
         with open(_file) as fh:
             data = fh.read()
             if self.verbose:
-                print "read %d bytes from %s" % (fh.tell(), _file)
+                sys.stdout.write("read %d bytes from %s\n"
+                                 % (fh.tell(), _file))
         return data
 
     def GET(self, url):
@@ -34,9 +35,7 @@ class Frag2Text:
         if self.verbose:
             sys.stdout.write("%s %s\n" % (r.status_code, r.encoding))
             sys.stdout.write(str(r.headers) + "\n")
-        self.http_status = r.status_code
         self.encoding = r.encoding
-        self.response_headers = r.headers
         return r.text
 
     def select(self, html, stype, expression):
@@ -71,7 +70,7 @@ def frag2text(endpoint, stype, selector,
 
     Args:
         endpoint: URL, file, or HTML string
-        type: { 'css' | 'xpath' }
+        stype: { 'css' | 'xpath' }
         selector: CSS selector or XPath expression
     Returns:
         Markdown text
