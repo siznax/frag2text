@@ -1,22 +1,21 @@
 Markdown gives you HTML from plain text and html2text reverses the
 process. If you want the plain text version of _a specific section_ of
-web page (an HTML fragment), you would normally do the selecting
+a web page (an HTML fragment), you would normally do the selecting
 (parsing) first, then generate the Markdown text to preserve some
 formatting.
 
 I made _frag2text_ because I want:
 
 * to easily select a web page fragment by CSS selector or XPath
-  expression, e.g. "#article" (just the article without boilerplate)
-  or "//p[0]" (just the first paragraph) 
-* to get the plain text of the fragment with formatting intact for
-  later use with Markdown
+  expression 
+* to get the plain text of the fragment with some formatting intact
+  for later use with Markdown
 * to not shell out to a another program (like lynx -dump)
 * to not parse HTML or text directly
 * to use html5lib for robust parsing
-* to have a simple python module that is easy to maintain,
-  encapsulating the tricky business of subclassing parsers,
-  treebuilders, and serializers by keeping it simple (this shouldn't
+* to have a simple python module that is easy to maintain
+  (encapsulating the tricky business of subclassing parsers,
+  treebuilders and serializers, by keeping it simple – this shouldn't
   need the power or resources of BeautifulSoup)
 
 This is a problem I've tinkered with for some time and solved in many
@@ -29,9 +28,12 @@ tools, please let me know. I hope this can become useful to others.
 
 ### python
 
-```python
-frag2text(endpoint, stype, selector, clean=False, raw=False,
-          verbose=False)
+```
+>>> import frag2text
+>>> help(frag2text)
+
+FUNCTIONS
+frag2text(endpoint, stype, selector, clean=False, raw=False, verbose=False)
     returns Markdown text of selected fragment.
 
     Args:
@@ -73,11 +75,11 @@ optional arguments:
 
 ```python
 import frag2text
-info = frag2text.frag2text(url, ['css'|'xpath'], 
-    'http://wikipedia.org/wiki/Amanita', 'css', '.infobox')
+info = frag2text.frag2text('http://wikipedia.org/wiki/Amanita',
+                           'css', '.infobox')
 ```
 
-### shell (trivial)
+### shell
 
 ```shell
 $ frag2text.py "<ht?+><borkt><h1>hello" xpath //h1
