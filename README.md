@@ -30,9 +30,20 @@ tools, please let me know. I hope this can become useful to others.
 ### python
 
 ```python
-import frag2text
-info = frag2text.frag2text(
-    'http://wikipedia.org/wiki/Amanita', 'css', '.infobox')
+frag2text(endpoint, stype, selector, clean=False, raw=False,
+          verbose=False)
+    returns Markdown text of selected fragment.
+
+    Args:
+        endpoint: URL, file, or HTML string
+        type: { 'css' | 'xpath' }
+        selector: CSS selector or XPath expression
+    Returns:
+        Markdown text
+    Options:
+        clean: cleans fragment (lxml.html.clean defaults)
+        raw: returns raw HTML fragment
+        verbose: show http status, encoding, headers
 ```
 
 ### shell
@@ -57,6 +68,22 @@ optional arguments:
 
 
 ## Examples
+
+### python
+
+```python
+import frag2text
+info = frag2text.frag2text(url, ['css'|'xpath'], 
+    'http://wikipedia.org/wiki/Amanita', 'css', '.infobox')
+```
+
+### shell (trivial)
+
+```shell
+$ frag2text.py "<ht?+><borkt><h1>hello" xpath //h1
+
+# hello
+```
 
 ### CSS select
 
