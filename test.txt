@@ -1,0 +1,34 @@
+TEST CASES TBD
+
+need more test cases, but here is one:
+
+    $ URL="http://ngm.nationalgeographic.com/print/2007/06/instant-cities/hessler-text"
+
+html2text raises HTMLParseError:
+
+    $ html2text $URL
+
+    HTMLParser.HTMLParseError: malformed start tag, at line 38, column 24
+
+    38:    document.write('<scr' + 'ipt language="JavaScript1.1" SRC="ht
+
+lynx requires shelling out, doesn't parse (allow selecting), nor does
+it preserve formatting:
+
+    $ lynx -dump $URL -nomargins  > lynx.txt
+
+    169
+    170 "Mei shir," Boss Wang said. "No problem."
+    171
+
+frag2text python module parses quickly and preserves formatting
+(html5lib parses robustly and lxml.html.clean.clean_html() excludes
+this section of the document)
+
+    $ frag2text.py $URL css div
+
+    178
+    179 _"Mei shir,"_ Boss Wang said. "No problem."
+    180
+
+@siznax
