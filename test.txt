@@ -1,6 +1,24 @@
 TEST CASES TBD
 
-need more test cases, but here is one:
+Bogus
+----------------------------------------------------------------
+
+html2text
+
+    $ echo '<ht?+><borkt><h3>hello' > file.txt
+    $ html2text file.txt
+
+    HTMLParser.HTMLParseError: malformed start tag, at line 1, column 4
+
+frag2text
+
+    $ frag2text.py '<ht?+><borkt><h3>hello' css h3
+
+    ### hello
+
+
+Real
+----------------------------------------------------------------
 
     $ URL="http://ngm.nationalgeographic.com/print/2007/06/instant-cities/hessler-text"
 
