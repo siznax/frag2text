@@ -3,6 +3,7 @@
 
 __author__ = "@siznax"
 __date__ = "Jan 2015"
+__version__ = '0.0.1'
 
 import argparse
 import html2text
@@ -21,7 +22,12 @@ class Frag2Text:
         self.verbose = verbose
         self.encoding = 'utf-8'
 
+    def user_agent():
+        """return user-agent for HTTP requests."""
+        pass
+
     def read(self, _file):
+        """return local file contents as endpoint."""
         with open(_file) as fh:
             data = fh.read()
             if self.verbose:
@@ -57,6 +63,7 @@ class Frag2Text:
 
 
 def safe_exit(output):
+    """exit without breaking pipes."""
     try:
         sys.stdout.write(output)
         sys.stdout.flush()
