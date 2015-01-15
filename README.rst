@@ -1,3 +1,6 @@
+frag2text
+=========
+
 Markdown_ gives you HTML from plain text and html2text_ reverses the
 process. If you want the plain text version of *a specific section* of
 a web page (an HTML fragment), you would normally do the selecting
@@ -89,6 +92,7 @@ shell
 -----
 
 .. code-block:: shell
+
     $ frag2text.py "<ht?+><borkt><h1>hello" xpath //h1
 
     # hello
@@ -98,6 +102,7 @@ CSS select
 ----------
 
 ::
+
     $ frag2text.py http://wikipedia.org/wiki/Amanita css .infobox
     _Amanita_
     ---
@@ -120,20 +125,21 @@ CSS select
     [c.600 species](/wiki/List_of_Amanita_species)
 
 
-XPath Expression
+XPath expression
 ----------------
 
 ::
-   $ frag2text.py http://en.wikipedia.org/wiki/Amanita xpath '//p[1]'
-   
-   The [genus](/wiki/Genus) _**Amanita**_ contains about 600 [species](/wik
-   i/Species) of [agarics](/wiki/Agarics) including some of the most [toxic
-   ](/wiki/Toxic) known [mushrooms](/wiki/Mushrooms) found worldwide, as we
-   ll as some well-regarded edible species. This genus is responsible for a
-   pproximately 95% of the fatalities resulting from [mushroom poisoning](/
-   wiki/Mushroom_poisoning), with the [death cap](/wiki/Death_cap) accounti
-   ng for about 50% on its own. The most potent toxin present in these mush
-   rooms is α[-amanitin](/wiki/%CE%91-amanitin).
+
+    $ frag2text.py http://en.wikipedia.org/wiki/Amanita xpath '//p[1]'
+
+    The [genus](/wiki/Genus) _**Amanita**_ contains about 600 [species](/wik
+    i/Species) of [agarics](/wiki/Agarics) including some of the most [toxic
+    ](/wiki/Toxic) known [mushrooms](/wiki/Mushrooms) found worldwide, as we
+    ll as some well-regarded edible species. This genus is responsible for a
+    pproximately 95% of the fatalities resulting from [mushroom poisoning](/
+    wiki/Mushroom_poisoning), with the [death cap](/wiki/Death_cap) accounti
+    ng for about 50% on its own. The most potent toxin present in these mush
+    rooms is α[-amanitin](/wiki/%CE%91-amanitin).
 
 :: _Markdown: https://github.com/waylan/Python-Markdown
 :: _html2text: https://github.com/Alir3z4/html2text/
