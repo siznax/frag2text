@@ -141,5 +141,5 @@ XPath expression
     ng for about 50% on its own. The most potent toxin present in these mush
     rooms is α[-amanitin](/wiki/%CE%91-amanitin).
 
-:: _Markdown: https://github.com/waylan/Python-Markdown
-:: _html2text: https://github.com/Alir3z4/html2text/
+.. _Markdown: https://github.com/waylan/Python-Markdown
+.. _html2text: https://github.com/Alir3z4/html2text/
