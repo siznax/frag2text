@@ -85,7 +85,7 @@ python
 
    import frag2text
    info = frag2text.frag2text('http://wikipedia.org/wiki/Amanita',
-                           'css', '.infobox')
+                              'css', '.infobox')
 
 
 shell
@@ -94,14 +94,14 @@ shell
 .. code-block:: shell
 
     $ frag2text.py "<ht?+><borkt><h1>hello" xpath //h1
-
+    ...
     # hello
 
 
 CSS select
 ----------
 
-::
+.. code-block:: shell
 
     $ frag2text.py http://wikipedia.org/wiki/Amanita css .infobox
     _Amanita_
@@ -128,7 +128,7 @@ CSS select
 XPath expression
 ----------------
 
-::
+.. code-block:: shell
 
     $ frag2text.py http://en.wikipedia.org/wiki/Amanita xpath '//p[1]'
 
