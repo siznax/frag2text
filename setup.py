@@ -18,7 +18,7 @@ setup(
     author_email='steve@siznax.net',
     py_modules=['frag2text'],
     packages=find_packages(exclude=['tests']),
-    install_requires=['html2text'],
+    install_requires=['cssselect', 'html2text', 'html5lib', 'lxml', 'requests'],
     include_package_data=True,
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

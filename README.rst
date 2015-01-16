@@ -7,24 +7,24 @@ a web page (an HTML fragment), you would normally do the selecting
 (parsing) first, then generate the Markdown text to preserve some
 formatting.
 
-I made *frag2text* because I want:
+I made *frag2text* to:
 
-* to easily select a web page fragment by CSS selector or XPath
-  expression 
-* to get the plain text of the fragment with some formatting intact
-  for later use with Markdown
-* to not shell out to a another program (like lynx -dump)
-* to not parse HTML or text directly
-* to use html5lib for robust parsing
-* to have a simple python module that is easy to maintain
-  (encapsulating the tricky business of subclassing parsers,
-  treebuilders and serializers, by keeping it simple – this shouldn't
-  need the power or resources of BeautifulSoup)
+* easily select a web page fragment by CSS selector or XPath
+  expression
+* get the plain text of the fragment with some formatting intact for
+  later use with Markdown
+* not shell out to a another program (like lynx -dump)
+* not parse HTML or text directly
+* use html5lib for robust parsing
+* have a simple python module that is easy to maintain (encapsulating
+  the tricky business of subclassing parsers, treebuilders and
+  serializers, by keeping it simple – this shouldn't require
+  BeautifulSoup) 
 
 This is a problem I've tinkered with for some time and solved in many
 different ways. It seems trivial but gets ridiculous quickly. If you
 have any suggestions or want to share your experiences with other
-tools, please let me know. I hope this can become useful to others.
+tools, please let me know.
 
 
 Usage
@@ -35,44 +35,44 @@ python
 
 .. code-block:: python
 
-   >>> import frag2text
-   >>> help(frag2text)
-   
-   FUNCTIONS
-   frag2text(endpoint, stype, selector, clean=False, raw=False, verbose=False)
-       returns Markdown text of selected fragment.
-   
-       Args:
-           endpoint: URL, file, or HTML string
-           stype: { 'css' | 'xpath' }
-           selector: CSS selector or XPath expression
-       Returns:
-           Markdown text
-       Options:
-           clean: cleans fragment (lxml.html.clean defaults)
-           raw: returns raw HTML fragment
-           verbose: show http status, encoding, headers
+    >>> from frag2text import frag2text
+    >>> help(frag2text)
+    Help on function frag2text in module frag2text:
+
+    frag2text(endpoint, stype, selector, clean=False, raw=False, verbose=False)
+        returns Markdown text of selected fragment.
+
+        Args:
+            endpoint: URL, file, or HTML string
+            stype: { 'css' | 'xpath' }
+            selector: CSS selector or XPath expression
+        Returns:
+            Markdown text
+        Options:
+            clean: cleans fragment (lxml.html.clean defaults)
+            raw: returns raw HTML fragment
+            verbose: show http status, encoding, headers
 
 shell
 -----
 
 .. code-block:: shell
 
-   $ frag2text.py -h
-   usage: frag2text.py [-h] [-c] [-r] [-v] endpoint {css,xpath} selector
-   
-   reverse Markdown (html2text) HTML fragments.
-   
-   positional arguments:
-     endpoint       URL, file, or HTML string
-     {css,xpath}    fragment selector type
-     selector       CSS select statement or XPath expression
-   
-   optional arguments:
-     -h, --help     show this help message and exit
-     -c, --clean    clean fragment (lxml.html.clean defaults)
-     -r, --raw      output raw fragment
-     -v, --verbose  print status, encoding, headers
+    $ frag2text.py -h
+    usage: frag2text.py [-h] [-c] [-r] [-v] endpoint {css,xpath} selector
+
+    reverse Markdown (html2text) HTML fragments.
+
+    positional arguments:
+      endpoint       URL, file, or HTML string
+      {css,xpath}    fragment selector type
+      selector       CSS select statement or XPath expression
+
+    optional arguments:
+      -h, --help     show this help message and exit
+      -c, --clean    clean fragment (lxml.html.clean defaults)
+      -r, --raw      output raw fragment
+      -v, --verbose  print status, encoding, headers
 
 
 Examples
@@ -83,9 +83,8 @@ python
 
 .. code-block:: python
 
-   import frag2text
-   info = frag2text.frag2text('http://wikipedia.org/wiki/Amanita',
-                              'css', '.infobox')
+    from frag2text import frag2text
+    info = frag2text('http://wikipedia.org/wiki/Amanita', 'css', '.infobox')
 
 
 shell
