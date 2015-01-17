@@ -27,6 +27,14 @@ have any suggestions or want to share your experiences with other
 tools, please let me know.
 
 
+Install
+=======
+
+.. code-block:: shell
+
+    $ pip install frag2text
+
+
 Usage
 =====
 
@@ -84,6 +92,7 @@ python
 .. code-block:: python
 
     from frag2text import frag2text
+
     info = frag2text('http://wikipedia.org/wiki/Amanita', 'css', '.infobox')
 
 
@@ -139,6 +148,7 @@ XPath expression
     wiki/Mushroom_poisoning), with the [death cap](/wiki/Death_cap) accounti
     ng for about 50% on its own. The most potent toxin present in these mush
     rooms is α[-amanitin](/wiki/%CE%91-amanitin).
+
 
 .. _Markdown: https://github.com/waylan/Python-Markdown
 .. _html2text: https://github.com/Alir3z4/html2text/
