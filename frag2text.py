@@ -55,7 +55,7 @@ class Frag2Text:
         else:
             frag = etree.xpath(expression)
         if frag:
-            return lxml.etree.tostring(frag[0])
+            return "".join([lxml.etree.tostring(x) for x in frag])
 
     def clean(self, html):
         """removes evil HTML per lxml.html.clean defaults."""
