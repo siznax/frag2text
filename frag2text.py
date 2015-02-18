@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 """Select and reverse-Markdown (html2text) web page fragments."""
 
-__author__ = "@siznax"
-__date__ = "Jan 2015"
-__version__ = '0.0.1'
-
 import argparse
 import cssselect
 import html2text
@@ -15,6 +11,11 @@ import lxml.html.clean
 import os
 import requests
 import sys
+
+__author__ = "Steve @siznax"
+__date__ = "Jan 2015"
+__license__ = "MIT"
+__version__ = '0.0.2'
 
 
 class Frag2Text:
