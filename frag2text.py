@@ -6,6 +6,7 @@ __date__ = "Jan 2015"
 __version__ = '0.0.1'
 
 import argparse
+import cssselect
 import html2text
 import html5lib
 import lxml.cssselect
@@ -54,8 +55,9 @@ class Frag2Text:
             frag = list(selector(etree))
         else:
             frag = etree.xpath(expression)
-        if frag:
-            return "".join([lxml.etree.tostring(x) for x in frag])
+        if not frag:
+            raise RuntimeError("Nothing found for: %s" % expression)
+        return "".join([lxml.etree.tostring(x) for x in frag])
 
     def clean(self, html):
         """removes evil HTML per lxml.html.clean defaults."""
@@ -86,10 +88,14 @@ def frag2text(endpoint, stype, selector,
         raw: returns raw HTML fragment
         verbose: show http status, encoding, headers
     """
-    return main(endpoint, stype, selector, clean, raw, verbose)
+    try:
+        return main(endpoint, stype, selector, clean, raw, verbose)
+    except StandardError as err:
+        return err
 
 
 def main(endpoint, stype, selector, clean, raw, verbose):
+
     ftt = Frag2Text(verbose)
     if endpoint.startswith('http'):
         html = ftt.GET(endpoint)
@@ -97,9 +103,16 @@ def main(endpoint, stype, selector, clean, raw, verbose):
         html = ftt.read(endpoint)
     else:
         html = endpoint
-    frag = ftt.select(html, stype, selector)
-    if not frag:
-        return "Error: selector '%s' not found.\n" % selector
+
+    try:
+        frag = ftt.select(html, stype, selector)
+    except lxml.etree.XPathEvalError as err:
+        raise Exception("XPathEvalError: %s" % err)
+    except cssselect.parser.SelectorSyntaxError as err:
+        raise Exception("SelectorSyntaxError: %s" % err)
+    except RuntimeError as err:
+        raise Exception(err)
+
     if clean:
         frag = ftt.clean(frag)
     if raw:
