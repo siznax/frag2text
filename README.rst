@@ -1,6 +1,9 @@
 frag2text
 =========
 
+.. image:: https://pypip.in/version/frag2text/badge.svg?style=flat
+        :target: https://pypi.python.org/pypi/frag2text/
+
 Markdown_ gives you HTML from plain text and html2text_ reverses the
 process. If you want the plain text version of *a specific section* of
 a web page (an HTML fragment), you would normally do the selecting

@@ -6,12 +6,15 @@ from setuptools import setup, find_packages
 
 with open('README.rst') as f:
     readme = f.read()
+with open('HISTORY.rst') as f:
+    history = f.read()
+
 
 setup(
     name='frag2text',
-    version='0.0.1',
+    version='0.0.5',
     description='Select and reverse-Markdown (html2text) web page fragments.',
-    long_description=readme,
+    long_description=readme + '\n\n' + history,
     url='https://github.com/siznax/frag2text/',
     license='MIT',
     author='Steve @siznax',

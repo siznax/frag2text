@@ -13,9 +13,9 @@ import requests
 import sys
 
 __author__ = "Steve @siznax"
-__date__ = "Jan 2015"
+__date__ = "Feb 2015"
 __license__ = "MIT"
-__version__ = '0.0.2'
+__version__ = '0.0.5'
 
 
 class Frag2Text:
