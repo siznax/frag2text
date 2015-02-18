@@ -99,8 +99,7 @@ def main(endpoint, stype, selector, clean, raw, verbose):
         html = endpoint
     frag = ftt.select(html, stype, selector)
     if not frag:
-        sys.stdout.write("Error: selector '%s' not found.\n" % selector)
-        sys.exit(os.EX_DATAERR)
+        return "Error: selector '%s' not found.\n" % selector
     if clean:
         frag = ftt.clean(frag)
     if raw:
