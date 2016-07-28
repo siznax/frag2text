@@ -15,7 +15,7 @@ import sys
 __author__ = "Steve @siznax"
 __date__ = "Feb 2015"
 __license__ = "MIT"
-__version__ = '0.0.5'
+__version__ = '0.0.6'
 
 
 class Frag2Text:
@@ -26,7 +26,7 @@ class Frag2Text:
 
     def user_agent():
         """return user-agent for HTTP requests."""
-        pass
+        return "python-requests/" + requests.__version__
 
     def read(self, _file):
         """return local file contents as endpoint."""
