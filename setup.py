@@ -12,7 +12,7 @@ with open('HISTORY.rst') as f:
 
 setup(
     name='frag2text',
-    version='0.0.5',
+    version='0.0.6',
     description='Select and reverse-Markdown (html2text) web page fragments.',
     long_description=readme + '\n\n' + history,
     url='https://github.com/siznax/frag2text/',
