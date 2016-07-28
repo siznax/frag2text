@@ -3,6 +3,12 @@
 Release History
 ---------------
 
+0.0.6 (2016-07-27)
+++++++++++++++++++
+
+* return python-requests user_agent.
+* fixed pypi badge (shields.io)
+
 0.0.5 (2015-02-18)
 ++++++++++++++++++
 
