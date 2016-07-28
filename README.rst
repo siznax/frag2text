@@ -1,7 +1,7 @@
 frag2text
 =========
 
-.. image:: https://pypip.in/version/frag2text/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/v/frag2text.svg
         :target: https://pypi.python.org/pypi/frag2text/
 
 Markdown_ gives you HTML from plain text and html2text_ reverses the
