@@ -1,6 +1,6 @@
 cssselect==0.9.1
 html2text==2014.12.29
-html5lib==0.999
+html5lib==0.999999999
 lxml==3.4.1
 requests==2.20.0
 six==1.9.0
